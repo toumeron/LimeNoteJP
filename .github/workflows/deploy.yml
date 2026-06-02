@@ -34,12 +34,12 @@ jobs:
       - name: Build
         run: bun run build
 
+      # TanStack Startは dist/client に静的ファイルを生成するため、
+      # GitHub Pagesが認識できるように dist/client の中身を artifact としてアップロードする
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # ここにビルド後に生成される静的ファイルのフォルダを指定する
-          # おそらく 'dist' か 'dist/client' のはずだ
-          path: './dist'
+          path: './dist/client'
 
       - name: Deploy to GitHub Pages
         id: deployment
