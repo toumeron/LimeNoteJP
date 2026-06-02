@@ -1,16 +1,13 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  // ここに base を書いてはいけない（これが型エラーの原因）
-  
   tanstackStart: {
-    server: false,
+    // 修正: false ではなく空オブジェクト {} を指定する
+    server: {},
   },
   
   vite: {
-    // base は必ずこの vite オブジェクトの中に書く
     base: '/LimeNoteJP/',
-    
     build: {
       ssr: false,
       outDir: 'dist',
