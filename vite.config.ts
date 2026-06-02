@@ -1,16 +1,13 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
 export default defineConfig({
-  tanstackStart: {
-    // 修正: false ではなく空オブジェクト {} を指定する
-    server: {},
+  plugins: [react()],
+  base: "/LimeNoteJP/",
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
-  
-  vite: {
-    base: '/LimeNoteJP/',
-    build: {
-      ssr: false,
-      outDir: 'dist',
-    }
-  }
 });
