@@ -20,12 +20,12 @@ export const Route = createFileRoute("/news")({
 type Category = "プレスリリース" | "お知らせ" | "サービス" | "コーポレート";
 
 const items: { date: string; category: Category; title: string; body: string }[] = [
-  { date: "2025-04-01", category: "プレスリリース", title: "SNS『LimeNote』の累計投稿数が新たな節目を迎えました", body: "日頃よりLimeNoteをご利用いただきありがとうございます。みなさまのちいさな「書く」が積み重なり、新たな節目を迎えることができました。" },
+  { date: "2025-04-01", category: "プレスリリース", title: "LimeNoteの累計投稿数が新たな節目を迎えました", body: "日頃よりLimeNoteをご利用いただきありがとうございます。みなさまのちいさな「書く」が積み重なり、新たな節目を迎えることができました。" },
   { date: "2024-10-15", category: "お知らせ", title: "LimeNote 利用規約改定のお知らせ", body: "コミュニティガイドラインの整備にともない、利用規約を改定いたしました。詳細は利用規約ページよりご確認ください。" },
   { date: "2024-04-20", category: "サービス", title: "通報・ブロック機能の改善を行いました", body: "より安心してご利用いただけるよう、通報・ブロック機能のインターフェース改善を実施しました。" },
   { date: "2024-01-12", category: "コーポレート", title: "本社所在地表記を更新しました", body: "本社所在地の表記を「神奈川県横浜市戸塚区」に統一いたしました。" },
   { date: "2023-12-01", category: "サービス", title: "ハッシュタグ機能を追加しました", body: "ノートにハッシュタグを付けて、同じテーマの投稿を見つけやすくしました。" },
-  { date: "2023-07-01", category: "サービス", title: "SNS『LimeNote』正式版をリリース", body: "短いノートでつながるSNS、LimeNoteを正式公開しました。" },
+  { date: "2023-07-01", category: "サービス", title: "LimeNote正式版をリリース", body: "短いノートでつながるLimeNoteを正式公開しました。" },
   { date: "2023-04-10", category: "サービス", title: "クローズドベータ版を公開", body: "LimeNoteのクローズドベータ版を一部のユーザー向けに公開しました。" },
   { date: "2023-01-10", category: "コーポレート", title: "LimeNote株式会社を設立しました", body: "神奈川県横浜市戸塚区にてLimeNote株式会社を設立いたしました。" },
 ];

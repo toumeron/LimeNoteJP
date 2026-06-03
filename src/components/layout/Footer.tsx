@@ -58,7 +58,6 @@ export function Footer() {
               短いノートでつながるSNS「LimeNote」を運営しています。
             </p>
             <address className="mt-5 text-xs not-italic leading-relaxed text-muted-foreground">
-              〒244-0000<br />
               神奈川県横浜市戸塚区<br />
               LimeNote株式会社
             </address>

@@ -17,7 +17,7 @@ export const Route = createFileRoute("/company/history")({
 
 const events = [
   { year: "2023", month: "1月", text: "神奈川県横浜市戸塚区にて LimeNote株式会社を設立。" },
-  { year: "2023", month: "春", text: "SNS『LimeNote』のクローズドベータ版を公開。" },
+  { year: "2023", month: "春", text: "LimeNoteのクローズドベータ版を公開。" },
   { year: "2023", month: "夏", text: "『LimeNote』正式版をリリース。" },
   { year: "2024", month: "秋", text: "利用規約を改定し、コミュニティガイドラインを整備。" },
   { year: "2025", month: "春", text: "累計投稿数が新たな節目を迎える。" },

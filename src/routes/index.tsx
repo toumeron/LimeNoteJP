@@ -7,10 +7,10 @@ import panelRecruit from "@/assets/panel-recruit.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LimeNote株式会社 | SNS『LimeNote』運営" },
-      { name: "description", content: "LimeNote株式会社は、SNS『LimeNote』を運営する企業です。横浜市戸塚区から、書くことの自由をひろげるサービスをお届けします。" },
+      { title: "LimeNote株式会社 | LimeNote 運営" },
+      { name: "description", content: "LimeNote株式会社は、LimeNoteを運営する企業です。横浜市戸塚区から、書くことの自由をひろげるサービスをお届けします。" },
       { property: "og:title", content: "LimeNote株式会社" },
-      { property: "og:description", content: "SNS『LimeNote』を運営するLimeNote株式会社の公式サイト。" },
+      { property: "og:description", content: "LimeNoteを運営するLimeNote株式会社の公式サイト。" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -26,10 +26,10 @@ const heroLinks = [
 ] as const;
 
 const news = [
-  { date: "2025-04-01", category: "プレスリリース", title: "SNS『LimeNote』の累計投稿数が新たな節目を迎えました" },
+  { date: "2025-04-01", category: "プレスリリース", title: "LimeNoteの累計投稿数が新たな節目を迎えました" },
   { date: "2024-10-15", category: "お知らせ", title: "LimeNote 利用規約改定のお知らせ" },
   { date: "2024-04-20", category: "サービス", title: "通報・ブロック機能の改善を行いました" },
-  { date: "2023-07-01", category: "サービス", title: "SNS『LimeNote』正式版をリリース" },
+  { date: "2023-07-01", category: "サービス", title: "LimeNote正式版をリリース" },
 ];
 
 function Home() {
@@ -47,18 +47,6 @@ function Home() {
               height={1080}
               className="h-[360px] w-full object-cover sm:h-[460px] lg:h-[560px]"
             />
-            {/* Green tagline panel — JR East style */}
-            <div className="absolute left-4 top-6 max-w-[88%] sm:left-10 sm:top-10 sm:max-w-[520px]">
-              <div className="bg-accent px-5 py-4 shadow-pop sm:px-8 sm:py-6">
-                <p className="font-display text-2xl font-black leading-[1.35] text-accent-foreground sm:text-3xl lg:text-4xl">
-                  書くことを、<br />もっと自由に。
-                </p>
-                <div className="mt-3 h-[3px] w-24 bg-primary" />
-              </div>
-              <p className="mt-3 ml-1 max-w-md text-sm font-medium text-card drop-shadow-md sm:text-base">
-                短いノートが、誰かのきょうに、そっと寄りそう。
-              </p>
-            </div>
 
             {/* Quick-link bar at bottom of hero */}
             <div className="absolute inset-x-2 bottom-2 sm:inset-x-6 sm:bottom-6">
@@ -87,7 +75,7 @@ function Home() {
               img={panelService}
               alt="LimeNoteのアプリ画面"
               eyebrow="Our Service"
-              title="SNS『LimeNote』"
+              title="LimeNote"
             />
             <SidePanel
               to="/recruit"
@@ -144,7 +132,7 @@ function Home() {
               </p>
               <p className="mt-6 leading-loose text-foreground/80">
                 LimeNote株式会社は、2023年1月に神奈川県横浜市戸塚区にて設立。
-                短いノートでつながるSNS『LimeNote』を企画・開発・運営しています。
+                短いノートでつながるLimeNoteを企画・開発・運営しています。
                 毎日のなかにある小さな気づきや、ぽつりとした一言を、
                 やさしく受けとめる場所をつくりつづけています。
               </p>
@@ -171,7 +159,7 @@ function Home() {
             </div>
             <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-border shadow-soft">
               <Stat k="設立" v="2023.01" />
-              <Stat k="本社" v="横浜市戸塚区" />
+              <Stat k="本社" v="横浜市" />
               <Stat k="代表者" v="ねこ" />
               <Stat k="事業" v="SNS運営" />
             </dl>
@@ -186,7 +174,7 @@ function Home() {
             Our Service
           </p>
           <h2 className="mt-3 font-display text-3xl font-black leading-tight text-primary-foreground sm:text-4xl lg:text-5xl">
-            SNS『LimeNote』を、<br />ひらいてみる。
+            LimeNoteを、<br />ひらいてみる。
           </h2>
           <p className="mt-5 max-w-2xl leading-relaxed text-primary-foreground/95">
             短いノートを通して、誰かのきょうにそっと寄りそう。

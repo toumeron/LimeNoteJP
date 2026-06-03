@@ -6,9 +6,9 @@ export const Route = createFileRoute("/service")({
   head: () => ({
     meta: [
       { title: "サービス | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社が運営するSNS『LimeNote』のご紹介。短いノートでつながる、やさしいSNSです。" },
+      { name: "description", content: "LimeNote株式会社が運営する LimeNote のご紹介。短いノートでつながる、やさしいSNSです。" },
       { property: "og:title", content: "サービス | LimeNote株式会社" },
-      { property: "og:description", content: "SNS『LimeNote』のご紹介。" },
+      { property: "og:description", content: "LimeNoteのご紹介。" },
       { property: "og:url", content: "/service" },
     ],
     links: [{ rel: "canonical", href: "/service" }],
@@ -27,7 +27,7 @@ function Service() {
     <>
       <PageHero
         eyebrow="Service"
-        title="SNS『LimeNote』"
+        title="LimeNote"
         description="書くことの、ちいさな自由を。短いノートでつながるSNSです。"
         crumbs={[{ label: "サービス" }]}
       />
@@ -57,7 +57,6 @@ function Service() {
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] opacity-80">App</p>
               <p className="mt-2 font-display text-2xl font-bold">LimeNote を開く</p>
-              <p className="mt-1 text-sm opacity-90">SNS本体のページへ</p>
             </div>
             <ExternalLink className="h-6 w-6 transition-transform group-hover:translate-x-1" />
           </a>
