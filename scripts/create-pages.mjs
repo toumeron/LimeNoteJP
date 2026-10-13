@@ -1,11 +1,14 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
-
-// GitHub Pages has no SPA rewrite support. Serve the app at each known route
-// so opening a shared link or refreshing a page also returns HTTP 200.
 const html = await readFile("dist/index.html", "utf8");
+// Serve the app for direct links/reloads on GitHub Pages.
 const routes = [
-  "company", "company/profile", "company/message", "company/history",
-  "service", "news", "recruit", "contact",
+  "company",
+  "company/profile",
+  "company/message",
+  "service",
+  "news",
+  "recruit",
+  "contact",
 ];
 for (const route of routes) {
   await mkdir(`dist/${route}`, { recursive: true });

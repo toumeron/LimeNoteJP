@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, FileText, MessageSquare, Clock } from "lucide-react";
+import { ArrowRight, FileText, MessageSquare } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 
-export const Route = createFileRoute("/company")({
+export const Route = createFileRoute("/company/")({
   head: () => ({
     meta: [
-      { title: "会社情報 | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社の会社概要、代表メッセージ、沿革をご紹介します。" },
-      { property: "og:title", content: "会社情報 | LimeNote株式会社" },
-      { property: "og:description", content: "LimeNote株式会社の会社概要、代表メッセージ、沿革。" },
+      { title: "会社情報 | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社の会社概要、代表メッセージをご紹介します。" },
+      { property: "og:title", content: "会社情報 | LimeService株式会社" },
+      { property: "og:description", content: "LimeService株式会社の会社概要、代表メッセージ。" },
       { property: "og:url", content: "/company" },
     ],
     links: [{ rel: "canonical", href: "/company" }],
@@ -19,7 +19,6 @@ export const Route = createFileRoute("/company")({
 const cards = [
   { to: "/company/profile", icon: FileText, title: "会社概要", desc: "商号・所在地・事業内容など、当社の基本情報。" },
   { to: "/company/message", icon: MessageSquare, title: "代表メッセージ", desc: "CEO ねこ氏からのごあいさつ。" },
-  { to: "/company/history", icon: Clock, title: "沿革", desc: "創業からこれまでのあゆみ。" },
 ] as const;
 
 function CompanyIndex() {
@@ -28,11 +27,11 @@ function CompanyIndex() {
       <PageHero
         eyebrow="Company"
         title="会社情報"
-        description="LimeNote株式会社についてご案内します。"
+        description="LimeService株式会社についてご案内します。"
         crumbs={[{ label: "会社情報" }]}
       />
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2">
           {cards.map((c) => (
             <Link
               key={c.to}

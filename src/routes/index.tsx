@@ -7,10 +7,10 @@ import panelRecruit from "@/assets/panel-recruit.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "LimeNote株式会社 | LimeNote 運営" },
-      { name: "description", content: "LimeNote株式会社は、LimeNoteを運営する企業です。横浜市戸塚区から、書くことの自由をひろげるサービスをお届けします。" },
-      { property: "og:title", content: "LimeNote株式会社" },
-      { property: "og:description", content: "LimeNoteを運営するLimeNote株式会社の公式サイト。" },
+      { title: "LimeService株式会社 | LimeNote 運営" },
+      { name: "description", content: "LimeService株式会社は、LimeNoteを運営する企業です。横浜市戸塚区から、書くことの自由をひろげるサービスをお届けします。" },
+      { property: "og:title", content: "LimeService株式会社" },
+      { property: "og:description", content: "LimeNoteを運営するLimeService株式会社の公式サイト。" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -21,7 +21,6 @@ export const Route = createFileRoute("/")({
 const heroLinks = [
   { to: "/company/message", label: "代表メッセージ" },
   { to: "/company/profile", label: "会社概要" },
-  { to: "/company/history", label: "沿革" },
   { to: "/service", label: "サービス" },
 ] as const;
 
@@ -123,7 +122,7 @@ function Home() {
       {/* COMPANY OVERVIEW STRIP */}
       <section className="bg-gradient-cream py-20 lg:py-28">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8">
-          <SectionTitle en="About Us" ja="LimeNoteについて" />
+          <SectionTitle en="About Us" ja="LimeServiceについて" />
           <div className="mt-10 grid gap-8 md:grid-cols-[1.1fr_1fr] md:items-center">
             <div>
               <p className="font-display text-xl font-bold leading-relaxed text-foreground sm:text-2xl">
@@ -131,7 +130,7 @@ function Home() {
                 <span className="text-accent">大切にする会社です。</span>
               </p>
               <p className="mt-6 leading-loose text-foreground/80">
-                LimeNote株式会社は、2023年1月に神奈川県横浜市戸塚区にて設立。
+                LimeService株式会社は、2023年1月に神奈川県横浜市戸塚区にて設立。
                 短いノートでつながるLimeNoteを企画・開発・運営しています。
                 毎日のなかにある小さな気づきや、ぽつりとした一言を、
                 やさしく受けとめる場所をつくりつづけています。
@@ -148,12 +147,6 @@ function Home() {
                   className="inline-flex h-11 items-center gap-1.5 rounded-full border border-accent bg-card px-6 text-sm font-bold text-accent hover:bg-accent/5"
                 >
                   <ArrowDot /> 代表メッセージ
-                </Link>
-                <Link
-                  to="/company/history"
-                  className="inline-flex h-11 items-center gap-1.5 rounded-full border border-accent bg-card px-6 text-sm font-bold text-accent hover:bg-accent/5"
-                >
-                  <ArrowDot /> 沿革
                 </Link>
               </div>
             </div>

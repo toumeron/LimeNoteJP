@@ -1,14 +1,22 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "@tanstack/react-router";
-
-import { getRouter } from "./router";
+import { CompanyAccess } from "./components/CompanyAccess";
 import "./styles.css";
 
-const router = getRouter();
+const CompanySite = lazy(() => import("./CompanySite"));
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CompanyAccess>
+      <Suspense
+        fallback={
+          <p role="status" className="p-6">
+            サイトを読み込んでいます…
+          </p>
+        }
+      >
+        <CompanySite />
+      </Suspense>
+    </CompanyAccess>
   </React.StrictMode>,
 );

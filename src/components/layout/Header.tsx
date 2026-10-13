@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ExternalLink, Mail } from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { AccountIcon } from "./AccountIcon";
 
 const nav = [
   { to: "/company", label: "会社情報" },
@@ -33,7 +34,9 @@ export function Header() {
                     <span>{n.label}</span>
                     <span
                       className={`absolute inset-x-4 bottom-3 h-[3px] rounded-full bg-accent transition-opacity ${
-                        isActive ? "opacity-100" : "opacity-0 group-hover:opacity-60"
+                        isActive
+                          ? "opacity-100"
+                          : "opacity-0 group-hover:opacity-60"
                       }`}
                     />
                   </>
@@ -44,37 +47,40 @@ export function Header() {
         </div>
 
         {/* Right: utility links */}
-        <div className="hidden items-center gap-2 lg:flex">
-          <a
-            href="https://toumeron.github.io/RaimuNoteSNS.github.io/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card px-4 text-xs font-bold text-foreground hover:border-accent hover:text-accent"
-          >
-            LimeNote を開く <ExternalLink className="h-3.5 w-3.5" />
-          </a>
-          <Link
-            to="/recruit"
-            className="inline-flex h-9 items-center px-3 text-xs font-bold text-foreground/70 hover:text-accent"
-          >
-            採用サイト
-          </Link>
-          <Link
-            to="/contact"
-            className="inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-primary px-4 text-xs font-bold text-primary-foreground shadow-soft hover:scale-[1.02]"
-          >
-            <Mail className="h-3.5 w-3.5" /> お問い合わせ
-          </Link>
-        </div>
+        <div className="flex items-center gap-3">
+          <div className="hidden items-center gap-2 lg:flex">
+            <a
+              href="https://toumeron.github.io/RaimuNoteSNS.github.io/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-border bg-card px-4 text-xs font-bold text-foreground hover:border-accent hover:text-accent"
+            >
+              LimeNote を開く <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+            <Link
+              to="/recruit"
+              className="inline-flex h-9 items-center px-3 text-xs font-bold text-foreground/70 hover:text-accent"
+            >
+              採用サイト
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-primary px-4 text-xs font-bold text-primary-foreground shadow-soft hover:scale-[1.02]"
+            >
+              <Mail className="h-3.5 w-3.5" /> お問い合わせ
+            </Link>
+          </div>
 
-        {/* Mobile burger */}
-        <button
-          className="inline-flex items-center justify-center self-center lg:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="メニュー"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          {/* Mobile burger */}
+          <button
+            className="inline-flex items-center justify-center self-center lg:hidden"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="メニュー"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+          <AccountIcon />
+        </div>
       </div>
 
       {open && (

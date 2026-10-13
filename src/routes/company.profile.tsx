@@ -4,10 +4,10 @@ import { PageHero } from "@/components/layout/PageHero";
 export const Route = createFileRoute("/company/profile")({
   head: () => ({
     meta: [
-      { title: "会社概要 | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社の商号、設立、代表者、所在地、事業内容など、会社概要をご案内します。" },
-      { property: "og:title", content: "会社概要 | LimeNote株式会社" },
-      { property: "og:description", content: "LimeNote株式会社の基本情報。" },
+      { title: "会社概要 | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社の商号、設立、代表者、所在地、事業内容など、会社概要をご案内します。" },
+      { property: "og:title", content: "会社概要 | LimeService株式会社" },
+      { property: "og:description", content: "LimeService株式会社の基本情報。" },
       { property: "og:url", content: "/company/profile" },
     ],
     links: [{ rel: "canonical", href: "/company/profile" }],
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/company/profile")({
 });
 
 const rows: [string, React.ReactNode][] = [
-  ["商号", "LimeNote株式会社 (LimeNote, Inc.)"],
+  ["商号", "LimeService株式会社 (LimeService, Inc.)"],
   ["設立", "2023年1月"],
   ["代表者", "代表取締役CEO ねこ"],
   ["本社所在地", "神奈川県横浜市戸塚区"],
@@ -30,7 +30,7 @@ function Profile() {
       <PageHero
         eyebrow="Profile"
         title="会社概要"
-        description="LimeNote株式会社の基本情報をご案内します。"
+        description="LimeService株式会社の基本情報をご案内します。"
         crumbs={[{ to: "/company", label: "会社情報" }, { label: "会社概要" }]}
       />
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">

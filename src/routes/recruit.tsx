@@ -5,10 +5,10 @@ import { PageHero } from "@/components/layout/PageHero";
 export const Route = createFileRoute("/recruit")({
   head: () => ({
     meta: [
-      { title: "採用情報 | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社の採用情報。ともにLimeNoteを育てる仲間を募集しています。" },
-      { property: "og:title", content: "採用情報 | LimeNote株式会社" },
-      { property: "og:description", content: "LimeNote株式会社の採用情報。" },
+      { title: "採用情報 | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社の採用情報。ともにLimeNoteを育てる仲間を募集しています。" },
+      { property: "og:title", content: "採用情報 | LimeService株式会社" },
+      { property: "og:description", content: "LimeService株式会社の採用情報。" },
       { property: "og:url", content: "/recruit" },
     ],
     links: [{ rel: "canonical", href: "/recruit" }],
@@ -67,7 +67,7 @@ function Recruit() {
           </div>
           <div className="p-6 sm:p-8">
             <p className="leading-relaxed text-foreground/85">
-              LimeNote株式会社は少人数で運営している会社です。現時点では公募中のポジションはございませんが、
+              LimeService株式会社は少人数で運営している会社です。現時点では公募中のポジションはございませんが、
               下記の領域に強い関心と経験をお持ちで、わたしたちの考えに共感いただける方は、
               いつでもお問い合わせフォームよりご連絡ください。
             </p>

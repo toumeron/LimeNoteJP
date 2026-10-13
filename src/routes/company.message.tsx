@@ -4,9 +4,9 @@ import { PageHero } from "@/components/layout/PageHero";
 export const Route = createFileRoute("/company/message")({
   head: () => ({
     meta: [
-      { title: "代表メッセージ | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社 代表取締役CEO ねこ からのメッセージをご紹介します。" },
-      { property: "og:title", content: "代表メッセージ | LimeNote株式会社" },
+      { title: "代表メッセージ | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社 代表取締役CEO ねこ からのメッセージをご紹介します。" },
+      { property: "og:title", content: "代表メッセージ | LimeService株式会社" },
       { property: "og:description", content: "代表取締役CEO ねこ からのメッセージ。" },
       { property: "og:url", content: "/company/message" },
     ],
@@ -47,13 +47,13 @@ function Message() {
               ぽつりとつぶやいた一言が、ちゃんと誰かの目にとまる。そんな場所をつくりたかったのです。
             </p>
             <p>
-              これからも LimeNote は、利用してくださるみなさんの声に耳を澄ませながら、
+              これからも私たちLimeServiceは、利用してくださるみなさんの声に耳を澄ませながら、
               ゆっくり、ていねいに育てていきます。よろしくお願いいたします。
             </p>
           </div>
 
           <p className="mt-10 text-right font-display text-sm text-muted-foreground">
-            LimeNote株式会社<br />
+            LimeService株式会社<br />
             代表取締役CEO ねこ
           </p>
         </div>

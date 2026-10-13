@@ -7,10 +7,10 @@ const FORM_URL = "https://forms.gle/1FUHzrWL38iVbUju5";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "お問い合わせ | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社へのお問い合わせは、Googleフォームより受け付けております。" },
-      { property: "og:title", content: "お問い合わせ | LimeNote株式会社" },
-      { property: "og:description", content: "LimeNote株式会社へのお問い合わせ窓口。" },
+      { title: "お問い合わせ | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社へのお問い合わせは、Googleフォームより受け付けております。" },
+      { property: "og:title", content: "お問い合わせ | LimeService株式会社" },
+      { property: "og:description", content: "LimeService株式会社へのお問い合わせ窓口。" },
       { property: "og:url", content: "/contact" },
     ],
     links: [{ rel: "canonical", href: "/contact" }],

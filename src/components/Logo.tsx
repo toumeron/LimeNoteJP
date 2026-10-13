@@ -12,12 +12,12 @@ export function Logo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
     <Link
       to="/"
       className="inline-flex items-center gap-1 font-display font-black"
-      aria-label="LimeNote株式会社"
+      aria-label="LimeService"
     >
       <span className={`${s} bg-gradient-primary bg-clip-text text-transparent`}>
         Lime
       </span>
-      <span className={`${s} text-accent`}>Note</span>
+      <span className={`${s} text-accent`}>Service</span>
     </Link>
   );
 }

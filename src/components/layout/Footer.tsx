@@ -9,7 +9,6 @@ const groups = [
       { to: "/company", label: "会社情報トップ" },
       { to: "/company/profile", label: "会社概要" },
       { to: "/company/message", label: "代表メッセージ" },
-      { to: "/company/history", label: "沿革" },
     ],
   },
   {
@@ -59,7 +58,7 @@ export function Footer() {
             </p>
             <address className="mt-5 text-xs not-italic leading-relaxed text-muted-foreground">
               神奈川県横浜市戸塚区<br />
-              LimeNote株式会社
+              LimeService株式会社
             </address>
           </div>
           {groups.map((g) => (
@@ -100,7 +99,7 @@ export function Footer() {
 
       <div className="border-t border-border">
         <div className="mx-auto flex max-w-[1280px] flex-col items-start justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row sm:items-center sm:px-6 lg:px-8">
-          <p>© {new Date().getFullYear()} LimeNote, Inc. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} LimeService, Inc. All rights reserved.</p>
           <p className="font-medium">Connecting small notes to everyday life.</p>
         </div>
       </div>

@@ -6,10 +6,10 @@ import { PageHero } from "@/components/layout/PageHero";
 export const Route = createFileRoute("/news")({
   head: () => ({
     meta: [
-      { title: "ニュース | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社からのお知らせ・プレスリリース一覧。" },
-      { property: "og:title", content: "ニュース | LimeNote株式会社" },
-      { property: "og:description", content: "LimeNoteからのお知らせ一覧。" },
+      { title: "ニュース | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社からのお知らせ・プレスリリース一覧。" },
+      { property: "og:title", content: "ニュース | LimeService株式会社" },
+      { property: "og:description", content: "LimeServiceからのお知らせ一覧。" },
       { property: "og:url", content: "/news" },
     ],
     links: [{ rel: "canonical", href: "/news" }],
@@ -27,7 +27,7 @@ const items: { date: string; category: Category; title: string; body: string }[]
   { date: "2023-12-01", category: "サービス", title: "ハッシュタグ機能を追加しました", body: "ノートにハッシュタグを付けて、同じテーマの投稿を見つけやすくしました。" },
   { date: "2023-07-01", category: "サービス", title: "LimeNote正式版をリリース", body: "短いノートでつながるLimeNoteを正式公開しました。" },
   { date: "2023-04-10", category: "サービス", title: "クローズドベータ版を公開", body: "LimeNoteのクローズドベータ版を一部のユーザー向けに公開しました。" },
-  { date: "2023-01-10", category: "コーポレート", title: "LimeNote株式会社を設立しました", body: "神奈川県横浜市戸塚区にてLimeNote株式会社を設立いたしました。" },
+  { date: "2023-01-10", category: "コーポレート", title: "LimeService株式会社を設立しました", body: "神奈川県横浜市戸塚区にてLimeService株式会社を設立いたしました。" },
 ];
 
 const filters: ("すべて" | Category)[] = ["すべて", "プレスリリース", "お知らせ", "サービス", "コーポレート"];
@@ -41,7 +41,7 @@ function News() {
       <PageHero
         eyebrow="News"
         title="ニュース"
-        description="LimeNote株式会社からのお知らせ・プレスリリースを掲載しています。"
+        description="LimeService株式会社からのお知らせ・プレスリリースを掲載しています。"
         crumbs={[{ label: "ニュース" }]}
       />
 

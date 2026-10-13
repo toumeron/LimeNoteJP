@@ -5,9 +5,9 @@ import { PageHero } from "@/components/layout/PageHero";
 export const Route = createFileRoute("/service")({
   head: () => ({
     meta: [
-      { title: "サービス | LimeNote株式会社" },
-      { name: "description", content: "LimeNote株式会社が運営する LimeNote のご紹介。短いノートでつながる、やさしいSNSです。" },
-      { property: "og:title", content: "サービス | LimeNote株式会社" },
+      { title: "サービス | LimeService株式会社" },
+      { name: "description", content: "LimeService株式会社が運営する LimeNote のご紹介。短いノートでつながる、やさしいSNSです。" },
+      { property: "og:title", content: "サービス | LimeService株式会社" },
       { property: "og:description", content: "LimeNoteのご紹介。" },
       { property: "og:url", content: "/service" },
     ],

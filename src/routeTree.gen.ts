@@ -15,9 +15,9 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompanyRouteImport } from './routes/company'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CompanyIndexRouteImport } from './routes/company.index'
 import { Route as CompanyProfileRouteImport } from './routes/company.profile'
 import { Route as CompanyMessageRouteImport } from './routes/company.message'
-import { Route as CompanyHistoryRouteImport } from './routes/company.history'
 
 const ServiceRoute = ServiceRouteImport.update({
   id: '/service',
@@ -49,6 +49,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompanyIndexRoute = CompanyIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CompanyRoute,
+} as any)
 const CompanyProfileRoute = CompanyProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -59,11 +64,6 @@ const CompanyMessageRoute = CompanyMessageRouteImport.update({
   path: '/message',
   getParentRoute: () => CompanyRoute,
 } as any)
-const CompanyHistoryRoute = CompanyHistoryRouteImport.update({
-  id: '/history',
-  path: '/history',
-  getParentRoute: () => CompanyRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -72,20 +72,19 @@ export interface FileRoutesByFullPath {
   '/news': typeof NewsRoute
   '/recruit': typeof RecruitRoute
   '/service': typeof ServiceRoute
-  '/company/history': typeof CompanyHistoryRoute
   '/company/message': typeof CompanyMessageRoute
   '/company/profile': typeof CompanyProfileRoute
+  '/company/': typeof CompanyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
   '/news': typeof NewsRoute
   '/recruit': typeof RecruitRoute
   '/service': typeof ServiceRoute
-  '/company/history': typeof CompanyHistoryRoute
   '/company/message': typeof CompanyMessageRoute
   '/company/profile': typeof CompanyProfileRoute
+  '/company': typeof CompanyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -95,9 +94,9 @@ export interface FileRoutesById {
   '/news': typeof NewsRoute
   '/recruit': typeof RecruitRoute
   '/service': typeof ServiceRoute
-  '/company/history': typeof CompanyHistoryRoute
   '/company/message': typeof CompanyMessageRoute
   '/company/profile': typeof CompanyProfileRoute
+  '/company/': typeof CompanyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -108,20 +107,19 @@ export interface FileRouteTypes {
     | '/news'
     | '/recruit'
     | '/service'
-    | '/company/history'
     | '/company/message'
     | '/company/profile'
+    | '/company/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/company'
     | '/contact'
     | '/news'
     | '/recruit'
     | '/service'
-    | '/company/history'
     | '/company/message'
     | '/company/profile'
+    | '/company'
   id:
     | '__root__'
     | '/'
@@ -130,9 +128,9 @@ export interface FileRouteTypes {
     | '/news'
     | '/recruit'
     | '/service'
-    | '/company/history'
     | '/company/message'
     | '/company/profile'
+    | '/company/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -188,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/company/': {
+      id: '/company/'
+      path: '/'
+      fullPath: '/company/'
+      preLoaderRoute: typeof CompanyIndexRouteImport
+      parentRoute: typeof CompanyRoute
+    }
     '/company/profile': {
       id: '/company/profile'
       path: '/profile'
@@ -202,26 +207,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyMessageRouteImport
       parentRoute: typeof CompanyRoute
     }
-    '/company/history': {
-      id: '/company/history'
-      path: '/history'
-      fullPath: '/company/history'
-      preLoaderRoute: typeof CompanyHistoryRouteImport
-      parentRoute: typeof CompanyRoute
-    }
   }
 }
 
 interface CompanyRouteChildren {
-  CompanyHistoryRoute: typeof CompanyHistoryRoute
   CompanyMessageRoute: typeof CompanyMessageRoute
   CompanyProfileRoute: typeof CompanyProfileRoute
+  CompanyIndexRoute: typeof CompanyIndexRoute
 }
 
 const CompanyRouteChildren: CompanyRouteChildren = {
-  CompanyHistoryRoute: CompanyHistoryRoute,
   CompanyMessageRoute: CompanyMessageRoute,
   CompanyProfileRoute: CompanyProfileRoute,
+  CompanyIndexRoute: CompanyIndexRoute,
 }
 
 const CompanyRouteWithChildren =
@@ -238,13 +236,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
