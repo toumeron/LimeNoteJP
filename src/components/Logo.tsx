@@ -14,10 +14,8 @@ export function Logo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
       className="inline-flex items-center gap-1 font-display font-black"
       aria-label="LimeService"
     >
-      <span className={`${s} bg-gradient-primary bg-clip-text text-transparent`}>
-        Lime
-      </span>
-      <span className={`${s} text-accent`}>Service</span>
+      <span className={`${s}`}>Lime</span>
+      <span className={`${s}`}>Service</span>
     </Link>
   );
 }

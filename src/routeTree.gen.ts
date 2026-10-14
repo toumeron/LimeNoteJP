@@ -15,9 +15,24 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompanyRouteImport } from './routes/company'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServiceIndexRouteImport } from './routes/service.index'
+import { Route as RecruitIndexRouteImport } from './routes/recruit.index'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as CompanyIndexRouteImport } from './routes/company.index'
+import { Route as ServiceNumbersRouteImport } from './routes/service.numbers'
+import { Route as ServiceLimenoteRouteImport } from './routes/service.limenote'
+import { Route as ServiceLimemapsRouteImport } from './routes/service.limemaps'
+import { Route as ServiceLimeaiRouteImport } from './routes/service.limeai'
+import { Route as RecruitSpecialRouteImport } from './routes/recruit.special'
+import { Route as RecruitInternshipRouteImport } from './routes/recruit.internship'
+import { Route as RecruitGraduatesRouteImport } from './routes/recruit.graduates'
+import { Route as RecruitCareerRouteImport } from './routes/recruit.career'
+import { Route as NewsNewsIdRouteImport } from './routes/news.$newsId'
+import { Route as CompanyVisionRouteImport } from './routes/company.vision'
 import { Route as CompanyProfileRouteImport } from './routes/company.profile'
 import { Route as CompanyMessageRouteImport } from './routes/company.message'
+import { Route as CompanyLeadershipRouteImport } from './routes/company.leadership'
+import { Route as CompanyAccessRouteImport } from './routes/company.access'
 
 const ServiceRoute = ServiceRouteImport.update({
   id: '/service',
@@ -49,9 +64,74 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServiceIndexRoute = ServiceIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServiceRoute,
+} as any)
+const RecruitIndexRoute = RecruitIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => RecruitRoute,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewsRoute,
+} as any)
 const CompanyIndexRoute = CompanyIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const ServiceNumbersRoute = ServiceNumbersRouteImport.update({
+  id: '/numbers',
+  path: '/numbers',
+  getParentRoute: () => ServiceRoute,
+} as any)
+const ServiceLimenoteRoute = ServiceLimenoteRouteImport.update({
+  id: '/limenote',
+  path: '/limenote',
+  getParentRoute: () => ServiceRoute,
+} as any)
+const ServiceLimemapsRoute = ServiceLimemapsRouteImport.update({
+  id: '/limemaps',
+  path: '/limemaps',
+  getParentRoute: () => ServiceRoute,
+} as any)
+const ServiceLimeaiRoute = ServiceLimeaiRouteImport.update({
+  id: '/limeai',
+  path: '/limeai',
+  getParentRoute: () => ServiceRoute,
+} as any)
+const RecruitSpecialRoute = RecruitSpecialRouteImport.update({
+  id: '/special',
+  path: '/special',
+  getParentRoute: () => RecruitRoute,
+} as any)
+const RecruitInternshipRoute = RecruitInternshipRouteImport.update({
+  id: '/internship',
+  path: '/internship',
+  getParentRoute: () => RecruitRoute,
+} as any)
+const RecruitGraduatesRoute = RecruitGraduatesRouteImport.update({
+  id: '/graduates',
+  path: '/graduates',
+  getParentRoute: () => RecruitRoute,
+} as any)
+const RecruitCareerRoute = RecruitCareerRouteImport.update({
+  id: '/career',
+  path: '/career',
+  getParentRoute: () => RecruitRoute,
+} as any)
+const NewsNewsIdRoute = NewsNewsIdRouteImport.update({
+  id: '/$newsId',
+  path: '/$newsId',
+  getParentRoute: () => NewsRoute,
+} as any)
+const CompanyVisionRoute = CompanyVisionRouteImport.update({
+  id: '/vision',
+  path: '/vision',
   getParentRoute: () => CompanyRoute,
 } as any)
 const CompanyProfileRoute = CompanyProfileRouteImport.update({
@@ -64,39 +144,91 @@ const CompanyMessageRoute = CompanyMessageRouteImport.update({
   path: '/message',
   getParentRoute: () => CompanyRoute,
 } as any)
+const CompanyLeadershipRoute = CompanyLeadershipRouteImport.update({
+  id: '/leadership',
+  path: '/leadership',
+  getParentRoute: () => CompanyRoute,
+} as any)
+const CompanyAccessRoute = CompanyAccessRouteImport.update({
+  id: '/access',
+  path: '/access',
+  getParentRoute: () => CompanyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
-  '/news': typeof NewsRoute
-  '/recruit': typeof RecruitRoute
-  '/service': typeof ServiceRoute
+  '/news': typeof NewsRouteWithChildren
+  '/recruit': typeof RecruitRouteWithChildren
+  '/service': typeof ServiceRouteWithChildren
+  '/company/access': typeof CompanyAccessRoute
+  '/company/leadership': typeof CompanyLeadershipRoute
   '/company/message': typeof CompanyMessageRoute
   '/company/profile': typeof CompanyProfileRoute
+  '/company/vision': typeof CompanyVisionRoute
+  '/news/$newsId': typeof NewsNewsIdRoute
+  '/recruit/career': typeof RecruitCareerRoute
+  '/recruit/graduates': typeof RecruitGraduatesRoute
+  '/recruit/internship': typeof RecruitInternshipRoute
+  '/recruit/special': typeof RecruitSpecialRoute
+  '/service/limeai': typeof ServiceLimeaiRoute
+  '/service/limemaps': typeof ServiceLimemapsRoute
+  '/service/limenote': typeof ServiceLimenoteRoute
+  '/service/numbers': typeof ServiceNumbersRoute
   '/company/': typeof CompanyIndexRoute
+  '/news/': typeof NewsIndexRoute
+  '/recruit/': typeof RecruitIndexRoute
+  '/service/': typeof ServiceIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/news': typeof NewsRoute
-  '/recruit': typeof RecruitRoute
-  '/service': typeof ServiceRoute
+  '/company/access': typeof CompanyAccessRoute
+  '/company/leadership': typeof CompanyLeadershipRoute
   '/company/message': typeof CompanyMessageRoute
   '/company/profile': typeof CompanyProfileRoute
+  '/company/vision': typeof CompanyVisionRoute
+  '/news/$newsId': typeof NewsNewsIdRoute
+  '/recruit/career': typeof RecruitCareerRoute
+  '/recruit/graduates': typeof RecruitGraduatesRoute
+  '/recruit/internship': typeof RecruitInternshipRoute
+  '/recruit/special': typeof RecruitSpecialRoute
+  '/service/limeai': typeof ServiceLimeaiRoute
+  '/service/limemaps': typeof ServiceLimemapsRoute
+  '/service/limenote': typeof ServiceLimenoteRoute
+  '/service/numbers': typeof ServiceNumbersRoute
   '/company': typeof CompanyIndexRoute
+  '/news': typeof NewsIndexRoute
+  '/recruit': typeof RecruitIndexRoute
+  '/service': typeof ServiceIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/company': typeof CompanyRouteWithChildren
   '/contact': typeof ContactRoute
-  '/news': typeof NewsRoute
-  '/recruit': typeof RecruitRoute
-  '/service': typeof ServiceRoute
+  '/news': typeof NewsRouteWithChildren
+  '/recruit': typeof RecruitRouteWithChildren
+  '/service': typeof ServiceRouteWithChildren
+  '/company/access': typeof CompanyAccessRoute
+  '/company/leadership': typeof CompanyLeadershipRoute
   '/company/message': typeof CompanyMessageRoute
   '/company/profile': typeof CompanyProfileRoute
+  '/company/vision': typeof CompanyVisionRoute
+  '/news/$newsId': typeof NewsNewsIdRoute
+  '/recruit/career': typeof RecruitCareerRoute
+  '/recruit/graduates': typeof RecruitGraduatesRoute
+  '/recruit/internship': typeof RecruitInternshipRoute
+  '/recruit/special': typeof RecruitSpecialRoute
+  '/service/limeai': typeof ServiceLimeaiRoute
+  '/service/limemaps': typeof ServiceLimemapsRoute
+  '/service/limenote': typeof ServiceLimenoteRoute
+  '/service/numbers': typeof ServiceNumbersRoute
   '/company/': typeof CompanyIndexRoute
+  '/news/': typeof NewsIndexRoute
+  '/recruit/': typeof RecruitIndexRoute
+  '/service/': typeof ServiceIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -107,19 +239,46 @@ export interface FileRouteTypes {
     | '/news'
     | '/recruit'
     | '/service'
+    | '/company/access'
+    | '/company/leadership'
     | '/company/message'
     | '/company/profile'
+    | '/company/vision'
+    | '/news/$newsId'
+    | '/recruit/career'
+    | '/recruit/graduates'
+    | '/recruit/internship'
+    | '/recruit/special'
+    | '/service/limeai'
+    | '/service/limemaps'
+    | '/service/limenote'
+    | '/service/numbers'
     | '/company/'
+    | '/news/'
+    | '/recruit/'
+    | '/service/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contact'
+    | '/company/access'
+    | '/company/leadership'
+    | '/company/message'
+    | '/company/profile'
+    | '/company/vision'
+    | '/news/$newsId'
+    | '/recruit/career'
+    | '/recruit/graduates'
+    | '/recruit/internship'
+    | '/recruit/special'
+    | '/service/limeai'
+    | '/service/limemaps'
+    | '/service/limenote'
+    | '/service/numbers'
+    | '/company'
     | '/news'
     | '/recruit'
     | '/service'
-    | '/company/message'
-    | '/company/profile'
-    | '/company'
   id:
     | '__root__'
     | '/'
@@ -128,18 +287,33 @@ export interface FileRouteTypes {
     | '/news'
     | '/recruit'
     | '/service'
+    | '/company/access'
+    | '/company/leadership'
     | '/company/message'
     | '/company/profile'
+    | '/company/vision'
+    | '/news/$newsId'
+    | '/recruit/career'
+    | '/recruit/graduates'
+    | '/recruit/internship'
+    | '/recruit/special'
+    | '/service/limeai'
+    | '/service/limemaps'
+    | '/service/limenote'
+    | '/service/numbers'
     | '/company/'
+    | '/news/'
+    | '/recruit/'
+    | '/service/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompanyRoute: typeof CompanyRouteWithChildren
   ContactRoute: typeof ContactRoute
-  NewsRoute: typeof NewsRoute
-  RecruitRoute: typeof RecruitRoute
-  ServiceRoute: typeof ServiceRoute
+  NewsRoute: typeof NewsRouteWithChildren
+  RecruitRoute: typeof RecruitRouteWithChildren
+  ServiceRoute: typeof ServiceRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -186,11 +360,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/service/': {
+      id: '/service/'
+      path: '/'
+      fullPath: '/service/'
+      preLoaderRoute: typeof ServiceIndexRouteImport
+      parentRoute: typeof ServiceRoute
+    }
+    '/recruit/': {
+      id: '/recruit/'
+      path: '/'
+      fullPath: '/recruit/'
+      preLoaderRoute: typeof RecruitIndexRouteImport
+      parentRoute: typeof RecruitRoute
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof NewsRoute
+    }
     '/company/': {
       id: '/company/'
       path: '/'
       fullPath: '/company/'
       preLoaderRoute: typeof CompanyIndexRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/service/numbers': {
+      id: '/service/numbers'
+      path: '/numbers'
+      fullPath: '/service/numbers'
+      preLoaderRoute: typeof ServiceNumbersRouteImport
+      parentRoute: typeof ServiceRoute
+    }
+    '/service/limenote': {
+      id: '/service/limenote'
+      path: '/limenote'
+      fullPath: '/service/limenote'
+      preLoaderRoute: typeof ServiceLimenoteRouteImport
+      parentRoute: typeof ServiceRoute
+    }
+    '/service/limemaps': {
+      id: '/service/limemaps'
+      path: '/limemaps'
+      fullPath: '/service/limemaps'
+      preLoaderRoute: typeof ServiceLimemapsRouteImport
+      parentRoute: typeof ServiceRoute
+    }
+    '/service/limeai': {
+      id: '/service/limeai'
+      path: '/limeai'
+      fullPath: '/service/limeai'
+      preLoaderRoute: typeof ServiceLimeaiRouteImport
+      parentRoute: typeof ServiceRoute
+    }
+    '/recruit/special': {
+      id: '/recruit/special'
+      path: '/special'
+      fullPath: '/recruit/special'
+      preLoaderRoute: typeof RecruitSpecialRouteImport
+      parentRoute: typeof RecruitRoute
+    }
+    '/recruit/internship': {
+      id: '/recruit/internship'
+      path: '/internship'
+      fullPath: '/recruit/internship'
+      preLoaderRoute: typeof RecruitInternshipRouteImport
+      parentRoute: typeof RecruitRoute
+    }
+    '/recruit/graduates': {
+      id: '/recruit/graduates'
+      path: '/graduates'
+      fullPath: '/recruit/graduates'
+      preLoaderRoute: typeof RecruitGraduatesRouteImport
+      parentRoute: typeof RecruitRoute
+    }
+    '/recruit/career': {
+      id: '/recruit/career'
+      path: '/career'
+      fullPath: '/recruit/career'
+      preLoaderRoute: typeof RecruitCareerRouteImport
+      parentRoute: typeof RecruitRoute
+    }
+    '/news/$newsId': {
+      id: '/news/$newsId'
+      path: '/$newsId'
+      fullPath: '/news/$newsId'
+      preLoaderRoute: typeof NewsNewsIdRouteImport
+      parentRoute: typeof NewsRoute
+    }
+    '/company/vision': {
+      id: '/company/vision'
+      path: '/vision'
+      fullPath: '/company/vision'
+      preLoaderRoute: typeof CompanyVisionRouteImport
       parentRoute: typeof CompanyRoute
     }
     '/company/profile': {
@@ -207,31 +472,101 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompanyMessageRouteImport
       parentRoute: typeof CompanyRoute
     }
+    '/company/leadership': {
+      id: '/company/leadership'
+      path: '/leadership'
+      fullPath: '/company/leadership'
+      preLoaderRoute: typeof CompanyLeadershipRouteImport
+      parentRoute: typeof CompanyRoute
+    }
+    '/company/access': {
+      id: '/company/access'
+      path: '/access'
+      fullPath: '/company/access'
+      preLoaderRoute: typeof CompanyAccessRouteImport
+      parentRoute: typeof CompanyRoute
+    }
   }
 }
 
 interface CompanyRouteChildren {
+  CompanyAccessRoute: typeof CompanyAccessRoute
+  CompanyLeadershipRoute: typeof CompanyLeadershipRoute
   CompanyMessageRoute: typeof CompanyMessageRoute
   CompanyProfileRoute: typeof CompanyProfileRoute
+  CompanyVisionRoute: typeof CompanyVisionRoute
   CompanyIndexRoute: typeof CompanyIndexRoute
 }
 
 const CompanyRouteChildren: CompanyRouteChildren = {
+  CompanyAccessRoute: CompanyAccessRoute,
+  CompanyLeadershipRoute: CompanyLeadershipRoute,
   CompanyMessageRoute: CompanyMessageRoute,
   CompanyProfileRoute: CompanyProfileRoute,
+  CompanyVisionRoute: CompanyVisionRoute,
   CompanyIndexRoute: CompanyIndexRoute,
 }
 
 const CompanyRouteWithChildren =
   CompanyRoute._addFileChildren(CompanyRouteChildren)
 
+interface NewsRouteChildren {
+  NewsNewsIdRoute: typeof NewsNewsIdRoute
+  NewsIndexRoute: typeof NewsIndexRoute
+}
+
+const NewsRouteChildren: NewsRouteChildren = {
+  NewsNewsIdRoute: NewsNewsIdRoute,
+  NewsIndexRoute: NewsIndexRoute,
+}
+
+const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
+
+interface RecruitRouteChildren {
+  RecruitCareerRoute: typeof RecruitCareerRoute
+  RecruitGraduatesRoute: typeof RecruitGraduatesRoute
+  RecruitInternshipRoute: typeof RecruitInternshipRoute
+  RecruitSpecialRoute: typeof RecruitSpecialRoute
+  RecruitIndexRoute: typeof RecruitIndexRoute
+}
+
+const RecruitRouteChildren: RecruitRouteChildren = {
+  RecruitCareerRoute: RecruitCareerRoute,
+  RecruitGraduatesRoute: RecruitGraduatesRoute,
+  RecruitInternshipRoute: RecruitInternshipRoute,
+  RecruitSpecialRoute: RecruitSpecialRoute,
+  RecruitIndexRoute: RecruitIndexRoute,
+}
+
+const RecruitRouteWithChildren =
+  RecruitRoute._addFileChildren(RecruitRouteChildren)
+
+interface ServiceRouteChildren {
+  ServiceLimeaiRoute: typeof ServiceLimeaiRoute
+  ServiceLimemapsRoute: typeof ServiceLimemapsRoute
+  ServiceLimenoteRoute: typeof ServiceLimenoteRoute
+  ServiceNumbersRoute: typeof ServiceNumbersRoute
+  ServiceIndexRoute: typeof ServiceIndexRoute
+}
+
+const ServiceRouteChildren: ServiceRouteChildren = {
+  ServiceLimeaiRoute: ServiceLimeaiRoute,
+  ServiceLimemapsRoute: ServiceLimemapsRoute,
+  ServiceLimenoteRoute: ServiceLimenoteRoute,
+  ServiceNumbersRoute: ServiceNumbersRoute,
+  ServiceIndexRoute: ServiceIndexRoute,
+}
+
+const ServiceRouteWithChildren =
+  ServiceRoute._addFileChildren(ServiceRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompanyRoute: CompanyRouteWithChildren,
   ContactRoute: ContactRoute,
-  NewsRoute: NewsRoute,
-  RecruitRoute: RecruitRoute,
-  ServiceRoute: ServiceRoute,
+  NewsRoute: NewsRouteWithChildren,
+  RecruitRoute: RecruitRouteWithChildren,
+  ServiceRoute: ServiceRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
