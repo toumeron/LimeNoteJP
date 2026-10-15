@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Atmosphere } from "../site/Atmosphere";
 export function PageHero({
   title,
   crumbs,
@@ -8,6 +9,7 @@ export function PageHero({
 }) {
   return (
     <div className="page-hero">
+      <Atmosphere />
       <div className="wrap">
         {crumbs && (
           <nav aria-label="パンくず">

@@ -17,11 +17,13 @@ import {
   MessageSquare,
   BrainCircuit,
   MapPinned,
-  Users,
   Mail,
   ShieldCheck,
   ExternalLink,
+  ArrowLeft,
+  ArrowRight,
 } from "lucide-react";
+import { Atmosphere } from "./Atmosphere";
 import { PageHero } from "@/components/layout/PageHero";
 import {
   companyFacts,
@@ -241,6 +243,7 @@ export function HomePage() {
         data-reveal
       >
         <div className="home-business-banner">
+          <Atmosphere />
           <img
             className="home-business-image"
             src={businessImage}
@@ -317,9 +320,7 @@ export function CompanyPage() {
   return (
     <div className="company-world" ref={reveal}>
       <Page
-        title="企業情報"
-        description="LimeService株式会社は、SNS・AI・地図を通して、人と情報をつなぐサービスを開発・運営しています。"
-      >
+        title="企業情報">
         <div className="company-overview">
           <div>
             <ContentHeading>LimeServiceについて</ContentHeading>
@@ -579,11 +580,6 @@ export function ServicesPage() {
   );
   const product = selected === "numbers" ? "limenote" : selected;
   const reveal = useReveal();
-  const menu = useRef<HTMLDialogElement>(null);
-  const choose = (id: string) => {
-    select(id);
-    menu.current?.close();
-  };
   const step = (direction: number) =>
     select(
       products[
@@ -595,73 +591,24 @@ export function ServicesPage() {
     );
   return (
     <div className={`service-world theme-${product}`} ref={reveal}>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
-      />
-      <div className="service-edge service-edge-left" aria-hidden="true">
-        LIME SERVICE
-      </div>
-      <div className="service-edge service-edge-right" aria-hidden="true">
-        LIME SERVICE
-      </div>
-      <button
-        className="service-menu-toggle"
-        type="button"
-        aria-label="サービスメニューを開く"
-        aria-haspopup="dialog"
-        onClick={() => menu.current?.showModal()}
-      >
-        <span aria-hidden="true" />
-      </button>
-      <dialog ref={menu} className="service-menu" aria-label="サービスメニュー">
-        <button
-          className="service-menu-close"
-          type="button"
-          aria-label="サービスメニューを閉じる"
-          onClick={() => menu.current?.close()}
-        >
-          ×
-        </button>
-        <nav aria-label="サービス一覧">
-          {items.map((item) => (
-            <button key={item.id} type="button" onClick={() => choose(item.id)}>
-              {item.label}
-            </button>
-          ))}
-          <button type="button" onClick={() => choose("numbers")}>
-            数字で見るLimeNote
-          </button>
-        </nav>
-      </dialog>
-      <header className="service-intro wrap">
-        <nav className="breadcrumbs" aria-label="パンくず">
-          <Link to="/">ホーム</Link>
-          <span aria-current="page">サービス紹介</span>
-        </nav>
-        <span className="service-display" aria-hidden="true">
-          SERVICE
-        </span>
-        <h1>サービス紹介</h1>
-        <p>
-          日々の発信から、考えを深める対話、場所の発見まで。共通のアカウントで利用できるサービスを提供しています。
-        </p>
+      <header className="service-intro">
+        <Atmosphere />
+        <div className="wrap service-intro-inner">
+          <nav className="breadcrumbs" aria-label="パンくず">
+            <Link to="/">ホーム</Link>
+            <span aria-current="page">サービス紹介</span>
+          </nav>
+          <div className="service-intro-heading">
+            <h1>サービス紹介</h1>
+          </div>
+        </div>
       </header>
-      <div className="service-selector wrap">
-        <ExperienceTabs
-          items={items}
-          selected={product}
-          onSelect={select}
-          label="サービスを選ぶ"
-        />
-      </div>
       <div className="service-body wrap">
         <div
           key={product}
           className="service-product-panel"
-          role="tabpanel"
-          id={`experience-panel-${product}`}
-          aria-labelledby={`experience-tab-${product}`}
+          role="region"
+          aria-labelledby={`section-${product}`}
           tabIndex={0}
         >
           <EmbeddedContext.Provider value={true}>
@@ -757,19 +704,16 @@ export function ProductPage({
       {onPrevious && onNext && (
         <div className="service-step-controls">
           <button type="button" onClick={onPrevious} aria-label="前のサービス">
-            〈
+            <ArrowLeft aria-hidden="true" />
           </button>
           <button type="button" onClick={onNext} aria-label="次のサービス">
-            〉
+            <ArrowRight aria-hidden="true" />
           </button>
         </div>
       )}
       <p className="audience-note">{d.audience}</p>
       <section className="text-section" data-reveal>
         <ContentHeading className="service-section-title">
-          <span className="service-section-en" aria-hidden="true">
-            FEATURE
-          </span>
           <span>主な機能</span>
         </ContentHeading>
         <div className="feature-list">
@@ -783,9 +727,6 @@ export function ProductPage({
       </section>
       <section className="text-section" data-reveal>
         <ContentHeading className="service-section-title">
-          <span className="service-section-en" aria-hidden="true">
-            SCENES
-          </span>
           <span>こんな場面で使えます</span>
         </ContentHeading>
         <div className="values-list">
@@ -799,9 +740,6 @@ export function ProductPage({
       </section>
       <section className="text-section" data-reveal>
         <ContentHeading className="service-section-title">
-          <span className="service-section-en" aria-hidden="true">
-            START
-          </span>
           <span>利用を始めるには</span>
         </ContentHeading>
         <p>
@@ -813,9 +751,6 @@ export function ProductPage({
       </section>
       <section className="text-section" data-reveal>
         <ContentHeading className="service-section-title">
-          <span className="service-section-en" aria-hidden="true">
-            FAQ
-          </span>
           <span>よくあるご質問</span>
         </ContentHeading>
         <Faq items={d.faqs} />
@@ -851,46 +786,52 @@ export function NumbersPage() {
   );
 }
 export function RecruitPage() {
+  const reveal = useReveal();
   return (
-    <Page title="採用情報">
-      <section className="recruit-intro">
-        <img src={businessImage} alt="" width={1672} height={941} />
-        <ContentHeading>
-          <span>いいサービスを、</span>
-          <span>いい働き方から。</span>
-        </ContentHeading>
-      </section>
-      <div className="recruit-message">
-        <p className="recruit-message-lead">
-          SNS、AI、地図。あなたの専門性とアイデアを、日々使われるサービスへ。
-        </p>
-        <p>
-          一人ひとりが力を発揮できる環境を、プロダクトづくりと同じくらい大切に。LimeServiceは、開発・デザイン・運営が対話しながら、企画から公開後の改善まで取り組むチームです。
-        </p>
-        <p>
-          SNSの交流体験、AIとの対話、地図から広がる発見。あなたの提案で、利用者の毎日を少し便利に。企画から改善まで、ものづくりの手応えを一緒に育てませんか。
-        </p>
-      </div>
-      <section className="text-section recruit-culture">
-        <ContentHeading>働く環境</ContentHeading>
-        <div className="editorial-grid">
-          {culture.map(([title, text]) => (
-            <article key={title}>
-              <SubHeading>{title}</SubHeading>
-              <p>{text}</p>
-            </article>
-          ))}
+    <div ref={reveal} className="recruit-world">
+      <Page title="採用情報">
+        <section className="recruit-intro">
+          <div className="recruit-scene" aria-hidden="true">
+            <Atmosphere />
+            <img src={businessImage} alt="" width={1672} height={941} />
+          </div>
+          <ContentHeading>
+            <span>いいサービスを、</span>
+            <span>いい働き方から。</span>
+          </ContentHeading>
+        </section>
+        <div className="recruit-message" data-reveal>
+          <p className="recruit-message-lead">
+            SNS、AI、地図。あなたの専門性とアイデアを、日々使われるサービスへ。
+          </p>
+          <p>
+            一人ひとりが力を発揮できる環境を、プロダクトづくりと同じくらい大切に。LimeServiceは、開発・デザイン・運営が対話しながら、企画から公開後の改善まで取り組むチームです。
+          </p>
+          <p>
+            SNSの交流体験、AIとの対話、地図から広がる発見。あなたの提案で、利用者の毎日を少し便利に。企画から改善まで、ものづくりの手応えを一緒に育てませんか。
+          </p>
         </div>
-      </section>
-      <section className="text-section recruit-opportunities">
-        <ContentHeading>募集区分</ContentHeading>
-        <EmbeddedContext.Provider value={true}>
-          {jobs.map((j) => (
-            <JobPage key={j.id} id={j.id} />
-          ))}
-        </EmbeddedContext.Provider>
-      </section>
-    </Page>
+        <section className="text-section recruit-culture" data-reveal>
+          <ContentHeading>働く環境</ContentHeading>
+          <div className="editorial-grid">
+            {culture.map(([title, text]) => (
+              <article key={title}>
+                <SubHeading>{title}</SubHeading>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section className="text-section recruit-opportunities" data-reveal>
+          <ContentHeading>募集区分</ContentHeading>
+          <EmbeddedContext.Provider value={true}>
+            {jobs.map((j) => (
+              <JobPage key={j.id} id={j.id} />
+            ))}
+          </EmbeddedContext.Provider>
+        </section>
+      </Page>
+    </div>
   );
 }
 export function JobPage({ id }: { id: string }) {
@@ -1036,7 +977,7 @@ export function NewsPage() {
   return (
     <Page
       title="ニュース"
-      description="企業活動、サービスの更新、ご利用に関するお知らせを掲載しています。"
+      description=" ︎ ︎ ︎ ︎ ︎ ︎ ︎ ︎ ︎"
     >
       <div
         className="news-filters"

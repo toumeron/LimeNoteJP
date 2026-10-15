@@ -1,105 +1,116 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import {
-  Home,
-  Building2,
-  Layers3,
-  Users,
-  Newspaper,
-  Mail,
-  Menu,
-  X,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { AccountIcon } from "./AccountIcon";
 import { navigation } from "@/content/site";
-const categoryIcons: Record<string, LucideIcon> = {
-  HOME: Home,
-  COMPANY: Building2,
-  SERVICE: Layers3,
-  RECRUIT: Users,
-  NEWS: Newspaper,
-  CONTACT: Mail,
-};
+
 export function Header() {
-  const [mobile, setMobile] = useState(false);
   const location = useLocation();
-  const ref = useRef<HTMLElement>(null);
-  const toggle = useRef<HTMLButtonElement>(null);
-  useEffect(() => setMobile(false), [location.href]);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const [open, setOpen] = useState(false);
+  const isCurrent = (to: string) =>
+    location.pathname === to ||
+    (to !== "/" && location.pathname.startsWith(to + "/"));
+
   useEffect(() => {
-    function outside(e: PointerEvent) {
-      if (!ref.current?.contains(e.target as Node)) setMobile(false);
-    }
-    function escape(e: KeyboardEvent) {
-      if (e.key === "Escape") {
-        setMobile(false);
-        toggle.current?.focus();
-      }
-    }
-    document.addEventListener("pointerdown", outside);
-    document.addEventListener("keydown", escape);
-    return () => {
-      document.removeEventListener("pointerdown", outside);
-      document.removeEventListener("keydown", escape);
+    dialog.current?.close();
+  }, [location.href]);
+
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const desktop = window.matchMedia("(min-width: 1051px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) dialog.current?.close();
     };
-  }, []);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      document.body.style.overflow = previous;
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [open]);
+
   return (
-    <header className="site-header" ref={ref}>
+    <header className="global-header">
       <a className="skip-link" href="#main-content">
         本文へスキップ
       </a>
-      <div className="header-inner">
-        <Logo />
-        <nav className="desktop-nav" aria-label="メインナビゲーション">
-          {navigation.map((n) => {
-            const Icon = categoryIcons[n.en];
-            return (
-              <div
-                key={n.to}
-                className={`nav-item ${location.pathname === n.to || (n.to !== "/" && location.pathname.startsWith(n.to + "/")) ? "active" : ""}`}
-              >
-                <Link to={n.to}>
-                  <Icon size={16} strokeWidth={1.7} aria-hidden="true" />
-                  {n.label}
-                </Link>
-              </div>
-            );
-          })}
+      <div className="global-header-inner">
+        <div className="global-brand">
+          <Logo />
+        </div>
+        <span className="global-header-rule" aria-hidden="true" />
+        <nav className="global-navigation" aria-label="メインナビゲーション">
+          {navigation.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className={item.en === "CONTACT" ? "global-contact" : ""}
+              aria-current={isCurrent(item.to) ? "page" : undefined}
+            >
+              <span>{item.label}</span>
+              {item.en === "CONTACT" && (
+                <ArrowUpRight size={15} aria-hidden="true" />
+              )}
+            </Link>
+          ))}
         </nav>
-        <button
-          ref={toggle}
-          className="mobile-menu-button"
-          type="button"
-          aria-label={mobile ? "メニューを閉じる" : "メニューを開く"}
-          aria-expanded={mobile}
-          aria-controls="mobile-menu"
-          onClick={() => setMobile(!mobile)}
-        >
-          {mobile ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-        </button>
-        <div className="header-account">
+        <div className="global-account">
           <AccountIcon />
         </div>
-      </div>
-      {mobile && (
-        <nav
-          id="mobile-menu"
-          className="mobile-nav"
-          aria-label="モバイルナビゲーション"
+        <button
+          className="global-menu-toggle"
+          type="button"
+          aria-label="メニューを開く"
+          aria-haspopup="dialog"
+          aria-expanded={open}
+          aria-controls="global-menu"
+          onClick={() => {
+            dialog.current?.showModal();
+            setOpen(true);
+          }}
         >
-          {navigation.map((n) => {
-            const Icon = categoryIcons[n.en];
-            return (
-              <Link className="mobile-nav-title" key={n.to} to={n.to}>
-                <Icon size={18} strokeWidth={1.7} aria-hidden="true" />
-                {n.label}
+          <span aria-hidden="true" />
+        </button>
+      </div>
+      <dialog
+        ref={dialog}
+        id="global-menu"
+        className="global-menu"
+        aria-label="サイトメニュー"
+        onClose={() => setOpen(false)}
+        onClick={(event) => {
+          if (event.target === event.currentTarget) dialog.current?.close();
+        }}
+      >
+        <div className="global-menu-sheet">
+          <div className="global-menu-top">
+            <Logo />
+            <button
+              type="button"
+              aria-label="メニューを閉じる"
+              onClick={() => dialog.current?.close()}
+            >
+              <X size={22} strokeWidth={1.4} aria-hidden="true" />
+            </button>
+          </div>
+          <nav aria-label="モバイルナビゲーション">
+            {navigation.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                aria-current={isCurrent(item.to) ? "page" : undefined}
+                onClick={() => dialog.current?.close()}
+              >
+                <span className="global-menu-label">{item.label}</span>
+                <ArrowUpRight size={22} strokeWidth={1.3} aria-hidden="true" />
               </Link>
-            );
-          })}
-        </nav>
-      )}
+            ))}
+          </nav>
+        </div>
+      </dialog>
     </header>
   );
 }

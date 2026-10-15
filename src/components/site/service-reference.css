@@ -1,255 +1,78 @@
-/* Watanare reference: LINE Seed titles, Zen Kaku text, patterned paper and photo panels. */
+/* Services share the PRONETS-inspired cyan, serif and fine-rule design. */
 .service-world {
-  --service-accent: #d6629e;
-  --service-ink: #785978;
-  --service-soft: #fae6ee;
-  --service-line: #ecc6d9;
+  --service-accent: #007d95;
+  --service-ink: #101818;
+  --service-soft: #dff5f7;
+  --service-line: #10282b33;
+  --service-sans: "IBM Plex Sans JP", sans-serif;
+  --service-serif: "Shippori Mincho", serif;
+  --service-mono: "Geist Mono", monospace;
   position: relative;
   isolation: isolate;
   overflow: clip;
   color: var(--service-ink);
-  font-family: "Zen Kaku Gothic New", sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  padding-bottom: 80px;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath fill='%23eed9e5' fill-opacity='.38' d='M20 20c-3-4-8 1-4 4l4 4 4-4c4-3-1-8-4-4z'/%3E%3C/svg%3E"),
-    linear-gradient(110deg, #fff4f8, #fff 55%, #f3fbfc);
-}
-.service-world.theme-limeai {
-  --service-accent: #a784c7;
-  --service-soft: #eee4f7;
-  --service-line: #d6c0e7;
-}
-.service-world.theme-limemaps {
-  --service-accent: #5db8bc;
-  --service-soft: #dff2f2;
-  --service-line: #a8d8d9;
+  font-family: var(--service-sans);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  padding-bottom: 96px;
+  background: #f7f9fa;
 }
 .service-world h1,
 .service-world h2,
 .service-world h3,
 .service-world h4 {
-  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-family: var(--service-sans);
   color: var(--service-ink);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
 }
 .service-world .wrap {
-  max-width: 1200px;
+  max-width: 1160px;
   width: calc(100% - 80px);
   position: relative;
 }
 .service-world p {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 2;
 }
-.service-world .service-section-en {
+.service-edge {
   display: none;
 }
-.service-edge {
-  position: absolute;
-  top: 100px;
-  bottom: 0;
-  width: 80px;
-  writing-mode: vertical-rl;
-  font:
-    800 88px / 1 "LINE Seed JP",
-    sans-serif;
-  color: #d6629e0e;
-  letter-spacing: 0.06em;
-  pointer-events: none;
-  user-select: none;
-  z-index: -1;
-}
-.service-edge-left {
-  left: -8px;
-}
-.service-edge-right {
-  right: -8px;
-  transform: rotate(180deg);
-  color: #5db8bc12;
-}
 .service-intro {
-  padding-block: 32px 36px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: 24px 64px;
+  border-bottom: 1px solid var(--service-line);
+}
+.service-world .service-intro-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px 72px;
+  align-items: end;
 }
 .service-intro .breadcrumbs {
-  margin-bottom: 48px;
-  color: var(--service-ink);
+  grid-column: 1 / -1;
+  margin: 0 0 24px;
+  color: #405466;
 }
 .service-intro .breadcrumbs > span::before {
   content: "/";
   padding-right: 8px;
 }
-.service-display {
-  display: inline-block;
-  font:
-    800 80px / 1.15 "LINE Seed JP",
-    sans-serif;
-  letter-spacing: 0.04em;
-  color: #d6629e;
-  background:
-    repeating-linear-gradient(
-      135deg,
-      #d6629e,
-      #d6629e 12px,
-      #d76ca513 12px,
-      #d76ca513 16px
-    ),
-    #d6629e;
-  background-clip: text;
-  -webkit-background-clip: text;
+.service-world .service-intro h1 {
+  font: 400 clamp(38px, 6vw, 72px)/1.5 var(--service-serif);
+  letter-spacing: 0.035em;
 }
-.service-intro h1 {
-  display: inline-block;
-  vertical-align: baseline;
-  margin-left: 24px;
-  font-size: 16px;
-  font-weight: 700;
-}
-.service-intro > p {
-  max-width: 760px;
-  margin-top: 32px;
-}
-.service-intro::after {
-  content: "";
-  position: absolute;
-  right: 100px;
-  top: 84px;
-  width: 36px;
-  height: 36px;
-  background: #efc85c;
-  clip-path: polygon(0 0, 100% 40%, 20% 100%);
-  transform: rotate(-15deg);
-  animation: service-paper-float 7s ease-in-out infinite;
-}
-.service-world .service-selector {
-  padding-block: 12px 24px;
-  position: sticky;
-  top: 68px;
-  z-index: 8;
-  background: #fffcfdeb;
-  backdrop-filter: blur(8px);
-}
-.service-selector .experience-tabs {
-  display: flex;
-  gap: 36px;
-}
-.service-selector .experience-tabs button {
-  padding: 8px 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: var(--service-ink);
-  font:
-    700 20px / 1.6 "LINE Seed JP",
-    sans-serif;
-  letter-spacing: 0.06em;
-  justify-content: start;
-}
-.service-selector .experience-tabs button span {
-  display: none;
-}
-.service-selector .experience-tabs button[aria-selected="true"] {
-  color: var(--service-accent);
-  background: transparent;
-}
-.service-selector .experience-tabs button[aria-selected="true"]::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  flex-shrink: 0;
-  background: var(--service-accent);
-  transform: rotate(45deg);
-}
-.service-selector .experience-tabs button:hover {
-  color: var(--service-accent);
-  transform: none;
-}
-.service-menu-toggle {
-  position: fixed;
-  top: 86px;
-  right: 16px;
-  z-index: 20;
-  width: 84px;
-  height: 84px;
-  background: #d6629e;
-  clip-path: polygon(
-    50% 16%,
-    68% 0,
-    85% 0,
-    100% 20%,
-    100% 38%,
-    50% 100%,
-    0 38%,
-    0 20%,
-    15% 0,
-    32% 0
-  );
-  display: grid;
-  place-items: center;
-}
-.service-menu-toggle span {
-  width: 30px;
-  height: 10px;
-  border-block: 2px solid white;
-  margin-top: -4px;
-}
-.service-menu-toggle:hover {
-  background: #c6538d;
-}
-.service-menu-toggle:focus-visible {
-  filter: drop-shadow(0 0 2px #333);
-}
-.service-menu {
-  inset: 0 0 0 auto;
-  margin: 0;
-  width: min(680px, 60vw);
-  max-width: 100%;
-  height: 100dvh;
-  max-height: 100dvh;
-  border: 0;
-  border-radius: 28px 0 0 28px;
-  padding: 100px 56px 48px;
-  color: #785978;
-  background: #fffdfd;
-  box-shadow: -20px 0 80px #78597812;
-}
-.service-menu[open] {
-  animation: experience-enter 0.3s ease both;
-}
-.service-menu::backdrop {
-  background: #fff8f8d9;
-  backdrop-filter: blur(3px);
-}
-.service-menu-close {
-  position: absolute;
-  top: 28px;
-  right: 28px;
-  font:
-    400 44px / 1 "LINE Seed JP",
-    sans-serif;
-}
-.service-menu nav {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-}
-.service-menu nav button {
-  text-align: left;
-  color: #785978;
-  font:
-    700 20px / 1.8 "LINE Seed JP",
-    sans-serif;
-  letter-spacing: 0.06em;
-}
-.service-menu nav button:hover {
-  color: #d6629e;
+.service-intro-inner > p {
+  max-width: 440px;
+  margin: 0 0 4px;
+  color: #253f52;
 }
 .service-body {
-  padding-top: 24px;
+  padding-top: 48px;
 }
 .service-product-panel {
-  animation: experience-enter 0.65s ease both;
+  animation: experience-enter 0.6s ease both;
 }
 .service-world .service-product-panel > .integrated-section {
   margin: 0;
@@ -259,40 +82,43 @@
   background: transparent;
 }
 .service-world .integrated-title {
-  font-size: 46px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 500;
   line-height: 1.3;
   color: var(--service-ink);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 .service-world .integrated-title::after {
   display: none;
 }
 .service-world .product-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
   max-width: none;
-  padding: 48px;
-  border-radius: 36px;
-  background:
-    radial-gradient(circle, #ffffffa6 1px, transparent 2px) 0 0 / 18px 18px,
-    var(--service-soft);
+  padding: 40px;
+  border: 1px solid var(--service-line);
+  border-radius: 0;
+  background: #fff;
 }
 .service-world .product-copy {
   min-width: 0;
-  padding-top: 16px;
+  padding-block: 16px;
 }
 .service-world .product-copy > .content-heading {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.65;
+  font: 500 clamp(24px, 2.7vw, 34px)/1.7 var(--service-serif);
   margin-block: 20px 24px;
 }
 .service-world .product-meta {
-  color: var(--service-ink);
-  font-size: 16px;
+  color: #536065;
+  font-size: 13px;
+  gap: 10px;
+}
+.service-world .product-meta svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.4;
 }
 .service-world .product-tag {
   color: inherit;
@@ -306,37 +132,31 @@
   flex-direction: column;
   align-items: center;
   min-width: 0;
-  min-height: 380px;
-  padding: 44px 16px 24px;
-  background: #fff;
+  padding: 0;
   border: 0;
-  border-radius: 2px 2px 18px 18px;
-  transform: rotate(-2deg);
-  box-shadow: -12px -12px 0 #ffffff60;
-  transition: transform 0.4s;
+  border-radius: 2px 48px 2px 2px;
+  background: #dcf4f7;
   overflow: hidden;
-}
-.service-world .product-visual:hover {
-  transform: rotate(0);
 }
 .service-world .product-photo-label {
   position: absolute;
-  inset: 0 0 auto;
-  padding: 9px 12px;
-  background: var(--service-accent);
-  color: #fff;
-  font:
-    700 15px / 1.5 "LINE Seed JP",
-    sans-serif;
-  letter-spacing: 0.08em;
-  text-align: center;
-  transform: rotate(2deg);
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+  background: #ffffffdc;
+  border: 1px solid var(--service-line);
+  padding: 6px 12px;
+  font: 400 11px/1.5 var(--service-mono);
 }
 .service-world .product-visual > img {
   display: block;
   width: 100%;
-  height: 240px;
-  object-fit: contain;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.17, 0.84, 0.44, 1);
+}
+.service-world .product-visual:hover > img {
+  transform: scale(1.03);
 }
 .service-world .product-visual > .product-person {
   width: 190%;
@@ -344,95 +164,91 @@
   align-self: flex-start;
   object-fit: cover;
   object-position: left top;
+  filter: grayscale(1);
   mix-blend-mode: multiply;
-  background: var(--service-soft);
 }
 .service-world .integrated-section {
-  scroll-margin-top: 70px;
+  scroll-margin-top: 84px;
 }
 .service-world .product-visual > svg {
-  width: 160px;
-  height: 240px;
+  width: 140px;
+  height: 280px;
   stroke-width: 0.8;
-  color: var(--service-accent);
+  color: #007d95;
 }
 .service-world .product-photo-tags {
   display: grid;
   gap: 8px;
   width: 100%;
-  padding: 20px 8px 0;
+  padding: 20px;
+  background: #f9ffffcf;
+  border-top: 1px solid var(--service-line);
 }
 .service-world .product-photo-tags > span {
-  font-size: 13px;
-  color: var(--service-ink);
+  font-size: 12px;
+  color: #536065;
 }
 .service-world .action-link {
-  border: 0;
-  border-radius: 28px;
-  background: var(--service-ink);
+  border: 1px solid #111b1e;
+  border-radius: 5px;
+  background: #111b1e;
   color: #fff;
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 24px;
-  gap: 20px;
-  padding: 14px 26px;
-  transition:
-    background 0.3s,
-    transform 0.3s;
+  gap: 28px;
+  padding: 15px 24px;
 }
 .service-world .action-link:hover {
-  background: var(--service-accent);
-  transform: translateY(-2px);
+  background: #d7f8fc;
+  color: #111b1e;
 }
 .service-step-controls {
   display: flex;
   justify-content: flex-end;
-  gap: 16px;
-  margin-top: -24px;
-  padding-right: 32px;
-  position: relative;
+  gap: 12px;
+  margin-top: 20px;
 }
 .service-step-controls > button {
-  width: 48px;
-  height: 48px;
-  background: #69c0c3;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: #111b1e;
   color: #fff;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  font-size: 22px;
-  line-height: 1;
-  transition: transform 0.3s;
+  border: 1px solid #111b1e;
+  border-radius: 5px;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+.service-step-controls > button svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.4;
 }
 .service-step-controls > button:hover {
-  transform: scale(1.08);
+  background: #d7f8fc;
+  color: #111b1e;
 }
 .service-world .audience-note {
   padding: 0;
   background: transparent;
-  border-radius: 0;
-  color: var(--service-ink);
-  margin-top: 28px;
-  font-size: 14px !important;
+  color: #536065;
+  margin-top: 24px;
+  font-size: 13px !important;
 }
 .service-world .text-section {
-  margin-top: 80px;
+  margin-top: 88px;
 }
 .service-world .text-section > .service-section-title {
+  position: relative;
   display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 16px 24px;
-  margin-bottom: 36px;
-  color: var(--service-ink);
-  font-size: 16px;
-  font-weight: 700;
-}
-.service-world .service-section-title > .service-section-en {
-  display: block;
-  color: #d6629e;
-  font:
-    800 64px / 1.15 "LINE Seed JP",
-    sans-serif;
-  letter-spacing: 0.04em;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--service-line);
+  font: 400 clamp(30px, 4.5vw, 52px)/1.5 var(--service-serif);
 }
 .service-world .feature-list {
   gap: 40px;
@@ -445,16 +261,15 @@
   border-radius: 0;
 }
 .service-world .sub-heading {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--service-ink);
+  font-size: 20px;
+  font-weight: 500;
   margin-bottom: 16px;
 }
 .service-world .values-list {
   gap: 32px;
   padding: 32px;
-  background: #fff9fc;
-  border-radius: 24px;
+  background: #e4f5f7;
+  border-radius: 8px;
 }
 .service-world .faq-list details {
   border-color: var(--service-line);
@@ -465,190 +280,118 @@
   line-height: 2;
 }
 .service-world .faq-list summary::before {
-  color: var(--service-accent);
+  color: #007d95;
 }
 .service-world .text-link {
   color: var(--service-ink);
 }
 .service-world .service-shared,
 .service-world .service-connections {
-  margin-top: 80px;
-  padding: 32px;
-  border: 0;
-  background: #fff;
-  border-radius: 24px;
+  margin-top: 88px;
+  padding: 40px;
+  border: 1px solid var(--service-line);
+  background: #ffffffc9;
+  border-radius: 8px 64px 8px 8px;
 }
 .service-world .service-shared > .integrated-section {
   margin-top: 0;
 }
 .service-world .service-shared .integrated-title {
-  font-size: 28px;
+  font: 400 34px/1.5 var(--service-serif);
 }
 .service-world .definition-list dt {
-  background: var(--service-soft);
+  background: #e8f6f8;
 }
 .service-world .definition-list,
 .service-world .definition-list > div {
   border-color: var(--service-line);
 }
-@keyframes service-paper-float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-15deg);
-  }
-  50% {
-    transform: translateY(8px) rotate(-9deg);
-  }
-}
 @media (max-width: 1023px) {
   .service-world .product-intro {
     gap: 28px;
-    padding: 32px;
-  }
-  .service-world .product-copy > .content-heading {
-    font-size: 24px;
+    padding: 28px;
   }
   .service-world .product-visual > img {
-    height: 210px;
+    height: 240px;
   }
 }
 @media (max-width: 767px) {
   .service-world .wrap {
     width: calc(100% - 48px);
   }
-  .service-edge {
-    width: 24px;
-    font-size: 64px;
-  }
-  .service-display {
-    font-size: 52px;
-  }
   .service-intro {
-    padding-block: 24px;
+    padding-block: 20px 36px;
+  }
+  .service-world .service-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
   .service-intro .breadcrumbs {
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
-  .service-intro h1 {
-    display: block;
-    margin: 12px 0 0;
+  .service-world .service-intro h1 {
+    font-size: 38px;
+  }
+  .service-intro-inner > p {
     font-size: 14px;
+    margin: 0;
   }
-  .service-intro > p {
-    margin-top: 24px;
-    font-size: 15px;
-  }
-  .service-intro::after {
-    right: 0;
-    top: 100px;
-    width: 22px;
-    height: 22px;
-  }
-  .service-selector .experience-tabs {
-    gap: 12px;
-    justify-content: flex-start;
-    padding-right: 48px;
-  }
-  .service-selector .experience-tabs button {
-    padding-block: 8px;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    gap: 4px;
-  }
-  .service-selector .experience-tabs button[aria-selected="true"]::before {
-    width: 6px;
-    height: 6px;
-  }
-  .service-menu-toggle {
-    width: 54px;
-    height: 54px;
-    top: 80px;
-    right: 8px;
-  }
-  .service-menu-toggle span {
-    width: 22px;
-    height: 8px;
-  }
-  .service-menu {
-    width: 100%;
-    border-radius: 0;
-    padding: 100px 32px 40px;
-  }
-  .service-menu nav {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .service-menu nav button {
-    font-size: 20px;
+  .service-body {
+    padding-top: 32px;
   }
   .service-world .integrated-title {
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 24px;
   }
   .service-world .product-intro {
     display: flex;
     flex-direction: column-reverse;
     align-items: stretch;
-    padding: 24px 20px;
+    padding: 20px;
     gap: 24px;
-    border-radius: 24px;
+    border-radius: 0;
   }
   .service-world .product-copy {
-    padding-top: 0;
+    padding: 0;
   }
   .service-world .product-copy > .content-heading {
-    font-size: 22px;
+    font-size: 25px;
   }
   .service-world .product-visual {
-    min-height: 0;
-    padding-top: 36px;
+    border-top-right-radius: 36px;
   }
   .service-world .product-visual > img {
-    height: 210px;
+    height: 220px;
   }
   .service-world .product-visual > svg {
-    width: 140px;
-    height: 190px;
-  }
-  .service-step-controls {
-    padding-right: 0;
-    margin-top: 16px;
-    justify-content: center;
+    width: 120px;
+    height: 220px;
   }
   .service-world .text-section {
     margin-top: 56px;
-  }
-  .service-world .text-section > .service-section-title {
-    display: block;
-    font-size: 14px;
-  }
-  .service-world .service-section-title > .service-section-en {
-    font-size: 48px;
-    margin-bottom: 12px;
   }
   .service-world .feature-list {
     grid-template-columns: 1fr;
     gap: 32px;
   }
   .service-world .sub-heading {
-    font-size: 20px;
+    font-size: 19px;
   }
   .service-world .values-list {
     padding: 24px 20px;
   }
   .service-world .service-shared,
   .service-world .service-connections {
-    padding: 24px 20px;
+    padding: 28px 20px;
     margin-top: 56px;
+    border-top-right-radius: 40px;
   }
   .service-world .service-shared .integrated-title {
-    font-size: 24px;
+    font-size: 27px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .service-world .product-visual,
-  .service-world .action-link:hover,
-  .service-step-controls > button:hover {
+  .service-world .product-visual:hover > img {
     transform: none;
   }
 }

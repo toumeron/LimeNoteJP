@@ -72,7 +72,7 @@
 }
 .company-browser > .experience-tabs {
   position: sticky;
-  top: 92px;
+  top: calc(var(--header-height, 80px) + 24px);
   flex-direction: column;
   gap: 0;
 }
@@ -161,7 +161,7 @@
   }
   .company-browser > .experience-tabs {
     position: sticky;
-    top: 68px;
+    top: var(--header-height, 80px);
     flex-direction: row;
     overflow-x: auto;
     background: #fff;
